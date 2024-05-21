@@ -7,6 +7,8 @@ from typing import List, TypeVar
 
 class Auth:
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
+        return False
+    def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         if path is None:
             return True
         if excluded_paths is None or excluded_paths.isEmpty():
