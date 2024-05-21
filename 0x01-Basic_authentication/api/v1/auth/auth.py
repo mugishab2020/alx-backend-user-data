@@ -9,6 +9,7 @@ class Auth:
     '''def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         return False'''
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
+        '''function that checks the required authentication'''
         if path is None:
             return True
         if excluded_paths is None or len(excluded_paths) == 0:
@@ -29,6 +30,8 @@ class Auth:
     '''def authorization_header(self, request=None) -> str:
         return None'''
     def authorization_header(self, request=None) -> str:
+        '''defining the authorization header function that
+        takes the request parameter'''
         if not request:
             return None
         if request.headers.get('Authorization') is None:
