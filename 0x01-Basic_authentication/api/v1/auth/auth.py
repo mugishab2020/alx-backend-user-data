@@ -39,4 +39,5 @@ class Auth:
         return request.headers.get('Authorization')
 
     def current_user(self, request=None) -> TypeVar('User'):
+        ''' Basic auth and checking current user'''
         return None
