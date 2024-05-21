@@ -6,14 +6,12 @@ from typing import List, TypeVar
 
 
 class Auth:
-    def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
-        '''checking the authentication credentials'''
-        return False
-    
     '''def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
+        return False'''
+    def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         if path is None:
             return True
-        if excluded_paths is None or excluded_paths.isEmpty():
+        if excluded_paths is None or len(excluded_paths) == 0:
             return True
         if path in excluded_paths:
             return False
@@ -27,17 +25,15 @@ class Auth:
         if path in normalized_excluded_paths:
             return False
         return True 
-'''
-    def authorization_header(self, request=None) -> str:
-        '''these ste Authorization headers function'''
-        return None
+
     '''def authorization_header(self, request=None) -> str:
+        return None'''
+    def authorization_header(self, request=None) -> str:
         if not request:
             return None
         if request.headers.get('Authorization') is None:
             return None
-        return request.headers.get('Authorization')'''
+        return request.headers.get('Authorization')
 
     def current_user(self, request=None) -> TypeVar('User'):
-        '''Returns the current user'''
         return None
