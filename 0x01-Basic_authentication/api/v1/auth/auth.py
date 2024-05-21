@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+'''this is the auth module tha will have class and method for authentication'''
 
 
 from flask import request
