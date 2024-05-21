@@ -25,7 +25,7 @@ class Auth:
 
         if path in normalized_excluded_paths:
             return False
-        return True 
+        return True
 
     '''def authorization_header(self, request=None) -> str:
         return None'''
