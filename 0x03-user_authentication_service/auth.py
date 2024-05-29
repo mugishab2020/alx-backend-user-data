@@ -54,5 +54,5 @@ class Auth:
         except Exception:
             return None
         seess_id = _generate_uuid()
-        self._db.update_user(user.id, seess_id=seess_id)
+        self._db.update_user(user.id, session_id=seess_id)
         return seess_id
