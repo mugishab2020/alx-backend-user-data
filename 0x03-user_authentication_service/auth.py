@@ -37,7 +37,7 @@ class Auth:
     def valid_login(self, email: str, password: str) -> bool:
         try:
             user = self._db.find_user_by(email=email)
-            bcrypt.checkpw(user.password) == password
-            return True
+            return bcrypt.checkpw(password.encode('utf-8'),
+                                           user.hashed_password)
         except Exception:
             return False
