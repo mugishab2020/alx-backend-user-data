@@ -32,20 +32,20 @@ def login():
     password = request.form.get('password')
     if not password or not email:
         abort(401)
-    if AUTH.valid_login(email=email, password=password) is False:
+    if Auth.valid_login(email=email, password=password) is False:
         abort(401)
 
-    session_id = AUTH.create_session(email)
+    session_id = Auth.create_session(email)
     response = make_response(jsonify({"email": email, "message": "logged in"}))
     response.set_cookie("session_id", session_id)
 
 
-@app.route('/sessions', methods=['DELETE'])
+@app.route('/sessions', methods=['DELETE'], strict_slashes=False)
 def logout():
     session_id = request.cookies.get('session_id')
     if session_id is None:
         abort(403)
-    user = AUTH.find_user_by(session_id=session_id)
+    user = Auth.find_user_by(session_id=session_id)
     if user:
         AUTH.destroy_session(session_id)
         return redirect('/')
